@@ -31,7 +31,7 @@ function Login() {
       localStorage.setItem("token", data.token);
 
       // ✅ REDIRECT TO DASHBOARD (DIFFERENT APP)
-      window.location.href = `http://localhost:3000/?token=${data.token}`;
+      window.location.href = `http://localhost:3001/?token=${data.token}`;
 
     } catch (error) {
       setMessage("Server error");
