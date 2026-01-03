@@ -8,6 +8,9 @@ const cors = require("cors");
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { PositionsModel } = require("./model/PositionsModel");
 const { OrdersModel } = require("./model/OrdersModel");
+const authRoutes = require("./routes/authRoutes");
+const { protect } = require("./middleware/authMiddleware");
+
 
 const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
@@ -17,6 +20,9 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use("/auth", authRoutes);
+
 app.get('/addHoldings', async(req,res)=>{
     let tempHoldings= [
   {
@@ -197,7 +203,7 @@ app.get('/allPositions', async(req,res)=>{
     res.json(allPositions);
 });
 
-app.post("/newOrder", async (req, res) => {
+app.post("/newOrder", protect, async (req, res) => {
   let newOrder = new OrdersModel({
     name: req.body.name,
     qty: req.body.qty,
