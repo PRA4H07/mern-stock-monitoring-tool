@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Universe() {
   return (
@@ -12,29 +13,61 @@ function Universe() {
 
         <div className="col-4 p-3 mt-5">
           <img src="images/smallcaseLogo.png" />
-          <p className="text-small text-muted mt-1">Thematic investment platform</p>
+          <p className="text-small text-muted mt-1">
+            Thematic investment platform
+          </p>
         </div>
+
         <div className="col-4 p-3 mt-5">
-          <img src="images/streakLogo.png" style={{ width: "140px", height: "auto" }} />
+          <img
+            src="images/streakLogo.png"
+            style={{ width: "140px", height: "auto" }}
+          />
           <p className="text-small text-muted mt-2">Algo & platform</p>
         </div>
-        <div className="col-4 p-3 mt-5 p-4" >
-          <img src="images/sensibullLogo.svg" style={{ width: "170px", height: "auto" }} />
-          <p className="text-small text-muted mt-3">Options trading platform</p>
+
+        <div className="col-4 p-3 mt-5 p-4">
+          <img
+            src="images/sensibullLogo.svg"
+            style={{ width: "170px", height: "auto" }}
+          />
+          <p className="text-small text-muted mt-3">
+            Options trading platform
+          </p>
         </div>
+
         <div className="col-4 p-3 mt-5">
-          <img src="images/zerodhaFundhouse.png" style={{ width: "160px", height: "auto" }}/>
+          <img
+            src="images/zerodhaFundhouse.png"
+            style={{ width: "160px", height: "auto" }}
+          />
           <p className="text-small text-muted mt-1">Asset management</p>
         </div>
+
         <div className="col-4 p-3 mt-5">
           <img src="images/goldenpiLogo.png" />
-          <p className="text-small text-muted mt-2">Bonds trading platform</p>
+          <p className="text-small text-muted mt-2">
+            Bonds trading platform
+          </p>
         </div>
+
         <div className="col-4 p-3 mt-5">
-          <img src="images/dittoLogo.png" style={{ width: "100px", height: "auto" }}/>
+          <img
+            src="images/dittoLogo.png"
+            style={{ width: "100px", height: "auto" }}
+          />
           <p className="text-small text-muted mt-3">Insurance</p>
-        </div> 
-        <button className='p-2 btn btn-primary fs-5 mb-5' style={{width:"20%", margin: "0 auto", }}>Signup now</button>
+        </div>
+
+        {/* ✅ Redirect to signup */}
+        <Link to="/signup">
+          <button
+            className="p-2 btn btn-primary fs-5 mb-5"
+            style={{ width: "20%", margin: "0 auto" }}
+          >
+            Signup now
+          </button>
+        </Link>
       </div>
     </div>
   );
