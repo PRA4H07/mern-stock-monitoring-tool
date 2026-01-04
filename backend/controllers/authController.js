@@ -1,11 +1,15 @@
+const { UserModel } = require("../model/UserModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { UserModel } = require("../model/UserModel");
 
-// REGISTER
+// 🔐 REGISTER
 const registerUser = async (req, res) => {
+  const { username, email, password } = req.body;
+
   try {
-    const { username, email, password } = req.body;
+    if (!username || !email || !password) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
 
     const userExists = await UserModel.findOne({ email });
     if (userExists) {
@@ -14,25 +18,26 @@ const registerUser = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new UserModel({
+    await UserModel.create({
       username,
       email,
       password: hashedPassword,
     });
 
-    await user.save();
     res.status(201).json({ message: "User registered successfully" });
-  } catch (err) {
-    res.status(500).json({ message: "Registration failed" });
+  } catch (error) {
+    console.error(error); // 👈 now errors WILL show
+    res.status(500).json({ message: "Server error" });
   }
 };
 
-// LOGIN
+// 🔐 LOGIN
 const loginUser = async (req, res) => {
-  try {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
+  try {
     const user = await UserModel.findOne({ email });
+
     if (!user) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
@@ -49,8 +54,9 @@ const loginUser = async (req, res) => {
     );
 
     res.json({ token });
-  } catch (err) {
-    res.status(500).json({ message: "Login failed" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
