@@ -10,7 +10,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3002/auth/register", {
+      const res = await fetch("https://mern-stock-monitoring-tool.onrender.com/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -20,7 +20,7 @@ const Menu = () => {
     localStorage.removeItem("token");
 
     // 2️⃣ Hard redirect to landing page login
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = "https://mern-stock-monitoring-tool-frontend.vercel.app/login";
   };
 
   const menuClass = "menu";

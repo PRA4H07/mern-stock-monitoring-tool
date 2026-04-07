@@ -12,7 +12,7 @@ const BuyActionWindow = ({ uid, mode }) => {
     const token = localStorage.getItem("token");
 
     axios.post(
-        "http://localhost:3002/newOrder",
+        "https://mern-stock-monitoring-tool.onrender.com/newOrder",
         {
           name: uid,
           qty: Number(stockQuantity),

@@ -22,20 +22,15 @@ root.render(
   <BrowserRouter>
     <Navbar />
     <Routes>
-      <Route
-        path="/"
-        element={
-          <ProtectedRoute>
-            <HomePage />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="/" element={<HomePage />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/product" element={<ProductPage />} />
       <Route path="/pricing" element={<PricingPage />} />
       <Route path="/support" element={<SupportPage />} />
+
+      {/* --- 404 ROUTE --- */}
       <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />

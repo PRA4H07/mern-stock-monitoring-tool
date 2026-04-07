@@ -9,7 +9,7 @@ const Holdings = () => {
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://localhost:3002/allHoldings", {
+      .get("https://mern-stock-monitoring-tool.onrender.com/allHoldings", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

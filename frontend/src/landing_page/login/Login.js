@@ -9,7 +9,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3002/auth/login", {
+      const response = await fetch("https://mern-stock-monitoring-tool.onrender.com/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function Login() {
       localStorage.setItem("token", data.token);
 
       // ✅ REDIRECT TO DASHBOARD (DIFFERENT APP)
-      window.location.href = `http://localhost:3001/?token=${data.token}`;
+      window.location.href = `https://mern-stock-monitoring-tool-dashboar.vercel.app/?token=${data.token}`;
 
     } catch (error) {
       setMessage("Server error");

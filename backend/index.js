@@ -18,7 +18,13 @@ const uri = process.env.MONGO_URL;
 const app = express();
 
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://mern-stock-monitoring-tool-frontend.vercel.app",
+    "https://mern-stock-monitoring-tool-dashboar.vercel.app"
+  ],
+  credentials: true
+}));
 app.use(bodyParser.json());
 
 app.use("/auth", authRoutes);
