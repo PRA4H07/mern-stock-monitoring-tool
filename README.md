@@ -1,4 +1,4 @@
-# 📈 MERN Stock Monitoring Tool (Zerodha Clone)
+# 📈 MERN Stock Monitoring Tool 
 
 A high-performance, full-stack trading platform clone built with the **MERN** stack. This project features a decoupled architecture with a public-facing landing page and a secure, JWT-protected dashboard for managing portfolio holdings and positions.
 
@@ -61,7 +61,6 @@ To ensure professional-grade security, the application implements:
     ```env
     MONGO_URL=your_mongodb_uri
     JWT_SECRET=your_secret_key
-    PORT=3002
     ```
 4.  **Run the project:**
     ```bash
